@@ -1,3 +1,8 @@
 spring:
   application:
     name: jmix2springboot
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
