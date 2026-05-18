@@ -9,24 +9,11 @@ import org.hibernate.annotations.SoftDeleteType;
 import java.time.Instant;
 
 @MappedSuperclass
-@SoftDelete
+@SoftDelete(columnName = "deleted_date", converter = DeletedAtConverter.class)
 public class StandardEntity extends AuditableEntity {
-
-    // TODO: This isn't finished, because i cannot make this work
 
     @Column(name = "deleted_date")
     private Instant deletedDate;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
-
-    public String getDeletedBy() {
-        return deletedBy;
-    }
-
-    public void setDeletedBy(String deletedBy) {
-        this.deletedBy = deletedBy;
-    }
 
     public Instant getDeletedDate() {
         return deletedDate;
